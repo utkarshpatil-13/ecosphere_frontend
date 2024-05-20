@@ -5,6 +5,7 @@ const Interests = () => {
 
     const [data, setData] = useState([]);
     const [userInterests, setUserInterests] = useState([]);
+    const [submitting, setSubmitting] = useState(false);
     const [redirect, setRedirect] = useState(false);
 
     const token = localStorage.getItem('token');
@@ -47,6 +48,7 @@ const Interests = () => {
 
     const onSubmit = async () => {
         console.log(userInterests);
+        setSubmitting(true);
         try {
             const response = await fetch('https://ecosphere-backend.onrender.com/api/profile', {
                 method: "PUT",
@@ -67,14 +69,17 @@ const Interests = () => {
                 console.log(res_data);
                 alert("Interests added successfully");
                 console.log("Interests added successfully");
+                setSubmitting(false);
                 setRedirect(true);
             } else {
                 console.error("Failed to add interests" || response.statusText);
                 alert("Interests not added");
                 console.log(response.status);
+                setSubmitting(false);
             }
         } catch (error) {
             console.log("Error while updating interests of the user", error);
+            setSubmitting(false);
         }
     };
 
@@ -110,7 +115,7 @@ const Interests = () => {
             }
         </div>
         
-        <div className="bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 p-2 my-4 max-w-md text-white rounded-2xl mx-auto text-center cursor-pointer" type="submit" onClick={onSubmit}>Submit</div>
+        <div className="bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 p-2 my-4 max-w-md text-white rounded-2xl mx-auto text-center cursor-pointer" type="submit" onClick={onSubmit}>{submitting ? "Submitting..." : "Submit"}</div>
 
     </div>
   )

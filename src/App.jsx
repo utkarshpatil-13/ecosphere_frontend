@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { lazy, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -13,6 +13,10 @@ import Interests from './pages/Interests'
 import Organize from './pages/Organize'
 import InitiativesPage from './pages/InitiativesPage'
 import ChallengesPage from './pages/ChallengesPage'
+
+// const Home = lazy(() => import('./pages/Home'));
+// const InitiativesPage = lazy(() => import('./pages/InitiativesPage'));
+// const ChallengesPage = lazy(() => import('./pages/ChallengesPage'));
 
 function App() {
 

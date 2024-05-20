@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // import for modal
 import Box from '@mui/material/Box';
@@ -7,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import UserContext from '../contexts/UserContext';
 
 const style = {
     position: 'absolute',
@@ -27,6 +29,9 @@ const ChallengesPage = ({count}) => {
     const [challenges, setChallenges] = useState([]);
     const [selectedChallenge, setSelectedChallenge] = useState(null);
     const token = localStorage.getItem('token');
+    const {user} = useContext(UserContext);
+
+    const navigate = useNavigate();
 
     let filteredChallenges = challenges;
     if(count !== undefined){
@@ -79,8 +84,39 @@ const ChallengesPage = ({count}) => {
 
     const joinChallenge = async (id) => {
         console.log(id);
-        try {
-            const response = await fetch(`https://ecosphere-backend.onrender.com/api/challenges/${id}/join`, {
+        if(user){
+            try {
+                const response = await fetch(`https://ecosphere-backend.onrender.com/api/challenges/${id}/join`, {
+                    method: "PUT",
+                    headers: {
+                        'authorization' : `Bearer ${token}`
+                    }
+                });
+        
+                const res_data = await response.json();
+                console.log(res_data);
+    
+                if(response.ok){
+                    alert(`You have successfully joined the ${res_data.data.title} challenge!!`);
+                    updateUser(res_data.data._id);
+                }
+                else{
+                    console.error("Couldn't join the challenge", response.status);
+                }
+            } catch (error) {
+                alert("Challenge alredy joined!");
+                console.log("Error in joining the challenge", error);
+            }
+        }
+        else{
+            alert("User need to first login!");
+            navigate('/login');
+        }
+    }
+
+    const updateUser = async (id) => {
+        try{
+            const response = await fetch(`https://ecosphere-backend.onrender.com/api/join/challenge/${id}`, {
                 method: "PUT",
                 headers: {
                     'authorization' : `Bearer ${token}`
@@ -91,15 +127,15 @@ const ChallengesPage = ({count}) => {
             console.log(res_data);
 
             if(response.ok){
-                alert(`You have successfully joined the ${res_data.data.title} challenge!!`);
+                console.log("User updated successfully!");
                 handleClose();
             }
             else{
-                console.error("Couldn't join the challenge", response.status);
+                console.error("Couldn't update the user", response.status);
             }
-        } catch (error) {
-            alert("Challenge alredy joined!");
-            console.log("Error in joining the challenge", error);
+        }   
+        catch(error){
+            console.log("Error while updating the user after joining the challenge");
         }
     }
 
