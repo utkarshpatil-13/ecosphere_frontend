@@ -20,11 +20,11 @@ To start the frontend development server, follow these steps:
 3. Navigate to the project directory in your terminal.
 4. Run the following command to install dependencies:
 
-npm install
+   npm install
 
 5. After the installation is complete, start the development server by running:
 
-npm run dev
+   npm run dev
 
 6. The development server should start, and you can access the application at http://localhost:3000 in your web browser.
 
