@@ -50,7 +50,7 @@ const Dashboard = () => {
   }, [user, token]);
 
   const fetchChallenges = async () => {
-    console.log(user.challegesParticipated);
+    console.log(user.challengesParticipated);
     try {
         const response = await fetch(`https://ecosphere-backend.onrender.com/api/challenges/ids`, {
             method: "POST",
@@ -58,7 +58,7 @@ const Dashboard = () => {
                 'Content-Type': 'application/json',
                 'authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({ids: user.challegesParticipated})
+            body: JSON.stringify({ids: user.challengesParticipated})
         });
 
         const res_data = await response.json();
