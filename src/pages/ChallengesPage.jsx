@@ -29,7 +29,7 @@ const ChallengesPage = ({count}) => {
     const [challenges, setChallenges] = useState([]);
     const [selectedChallenge, setSelectedChallenge] = useState(null);
     const token = localStorage.getItem('token');
-    const {user} = useContext(UserContext);
+    const {user, setUser} = useContext(UserContext);
 
     const navigate = useNavigate();
 
@@ -99,6 +99,10 @@ const ChallengesPage = ({count}) => {
                 if(response.ok){
                     alert(`You have successfully joined the ${res_data.data.title} challenge!!`);
                     updateUser(res_data.data._id);
+                    setUser((prevUser) => ({
+                        ...prevUser,
+                        challengesParticipated: [...prevUser.challengesParticipated, res_data.data._id]
+                    }));
                 }
                 else{
                     console.error("Couldn't join the challenge", response.status);

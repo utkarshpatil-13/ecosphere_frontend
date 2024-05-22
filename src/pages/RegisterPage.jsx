@@ -99,7 +99,7 @@ const RegisterPage = () => {
                     />
                     {errors.location && <p className="text-red-500 mb-1 pl-2">{errors.location.message}</p>}
 
-                    <button type="submit" className="primary">{submitting ? "Registering" : "Register"}</button>
+                    <button type="submit" className="primary">{submitting ? "Registering..." : "Register"}</button>
                     <div className="text-center py-2 text-gray-500">
                         Already a member? <Link className="underline text-black" to='/login'>Login</Link>
                     </div>

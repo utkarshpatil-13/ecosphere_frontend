@@ -28,7 +28,7 @@ const InitiativesPage = ({count}) => {
     const [initiatives, setInitiatives] = useState([]);
     const [selectedInitiative, setSelectedInitiative] = useState(null);
     const token = localStorage.getItem('token');
-    const {user} = useContext(UserContext);
+    const {user, setUser} = useContext(UserContext);
     const navigate = useNavigate();
 
     let filteredInitiatives = initiatives;
@@ -99,6 +99,10 @@ const InitiativesPage = ({count}) => {
                 if(response.ok){
                     alert(`You have successfully joined the ${res_data.data.title} challenge!!`);
                     updateUser(res_data.data._id);
+                    setUser((prevUser) => ({
+                        ...prevUser,
+                        initiativesParticipated: [...prevUser.initiativesParticipated, res_data.data._id]
+                    }));
                 }
                 else{
                     console.error("Couldn't join the challenge", response.status);

@@ -127,15 +127,15 @@ console.log(participatedInitiatives);
                 {/* Total Participated Events Till now */}
                 <div className='inline-block bg-white p-4 border border-slate-200 rounded-2xl text-center mx-2'>
                   <h2 className='text-md text-slate-500'>Total Participation</h2>
-                    <p className='text-3xl font-semibold text-center mt-2'>{(participatedChallenges && participatedInitiatives) ? participatedChallenges.length + participatedInitiatives.length : 0}</p>
-                    {(participatedChallenges && participatedInitiatives) && <p className='text-sm text-slate-500 mt-2'>increase from last month</p>}
+                    <p className='text-3xl font-semibold text-center mt-2'>{(participatedChallenges && participatedInitiatives) &&participatedChallenges.length + participatedInitiatives.length}</p>
+                    {(participatedChallenges.length !== 0 && participatedInitiatives.length !== 0) && <p className='text-sm text-slate-500 mt-2'>increase from last month</p>}
                 </div>
 
                 {/* Rewards */}
                 <div className='inline-block bg-white p-4 border border-slate-200 rounded-2xl text-center mx-2'>
                   <h2 className='text-md text-slate-500'>Rewards Won</h2>
-                    <p className='text-3xl font-semibold text-center mt-2'>{(user && user.rewards) ? user.rewards.length : 0}</p>
-                    {(user && user.rewards) && <p className='text-sm text-slate-500 mt-2'>participate in more challenges</p>}
+                    <p className='text-3xl font-semibold text-center mt-2'>{(user && user.rewards) && user.rewards.length}</p>
+                    {(user && user.rewards.length !== 0) && <p className='text-sm text-slate-500 mt-2'>participate in more challenges</p>}
                 </div>
               </div>
               <div className='my-10 border border-slate-300 rounded-2xl py-10 px-5'>

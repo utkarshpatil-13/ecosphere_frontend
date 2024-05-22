@@ -22,7 +22,7 @@ export function UserContextProvider({children}){
           setUser(res.data);
           setReady(true);
         })
-      }, []);
+      }, [token]);
 
     return (
         <UserContext.Provider value={{user, setUser, ready}}>

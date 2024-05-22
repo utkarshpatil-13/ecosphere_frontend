@@ -6,6 +6,7 @@ import UserContext from '../contexts/UserContext';
 const LoginPage = () => {
 
     const [redirect, setRedirect] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
     const [interestsStatus, setInterestsStatus] = useState(false);
     const { register, handleSubmit, formState, control } = useForm();
     const { user, setUser } = useContext(UserContext);
@@ -13,6 +14,7 @@ const LoginPage = () => {
 
     const onSubmit = async (data) => {
         try {
+            setSubmitting(true);
             const response = await fetch('https://ecosphere-backend.onrender.com/api/login', {
                 method: "POST",
                 headers: {
@@ -35,13 +37,16 @@ const LoginPage = () => {
                     setInterestsStatus(true);
                 }
 
+                setSubmitting(false);
                 setRedirect(true);
             }
             else {
+                setSubmitting(false);
                 alert('Login Failed!');
                 console.log('Login Failed!', error);
             }
         } catch (error) {
+            setSubmitting(false);
             alert('Login Failed!');
             console.log("Error occured while logging to the data", error);
         }
@@ -89,7 +94,7 @@ const LoginPage = () => {
                                     }
                                 })} />
                             {errors.password && <p className='text-red-500 w-full mt-1 ml-2'>{errors.password.message}</p>}
-                            <button className="primary" type="submit">Login</button>
+                            <button className="primary" type="submit">{submitting ? "Logging In..." : "Login"}</button>
                             <div className="text-center py-2 text-gray-500">Don't have an account yet? <Link className="underline text-black" to='/register'>Register now</Link></div>
                         </form>
                     </div>
