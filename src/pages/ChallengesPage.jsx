@@ -69,7 +69,7 @@ const ChallengesPage = ({count}) => {
                 setChallenges(res_data.data);
             }
         } catch (error) {
-            console.log("Error while fetching the challenges", error);
+            console.log(`Error while fetching the challenges ${error.message}`);
         }
     };
 
@@ -105,11 +105,11 @@ const ChallengesPage = ({count}) => {
                     }));
                 }
                 else{
-                    console.error("Couldn't join the challenge", response.status);
+                    console.error(`Couldn't join the challenge! ${res_data.message}`);
                 }
             } catch (error) {
-                alert("Challenge alredy joined!");
-                console.log("Error in joining the challenge", error);
+                alert(`Error in joining the challenge! ${error.message}`);
+                console.log(`Error in joining the challenge ${error.message}`);
             }
         }
         else{
@@ -135,11 +135,13 @@ const ChallengesPage = ({count}) => {
                 handleClose();
             }
             else{
-                console.error("Couldn't update the user", response.status);
+                alert(`Couldn't update the user ${res_data.message}`);
+                console.error(`Couldn't update the user ${res_data.message}`);
             }
         }   
         catch(error){
-            console.log("Error while updating the user after joining the challenge");
+            alert(`Error while updating the user after joining the challenge ${error.message}`)
+            console.log(`Error while updating the user after joining the challenge ${error.message}`)
         }
     }
 

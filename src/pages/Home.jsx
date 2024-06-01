@@ -6,11 +6,11 @@ import InitiativesPage from './InitiativesPage';
 
 const Home = () => {
 
-  useEffect(() => {
+  // useEffect(() => {
     // fetchInitiatives();
     // fetchChallenges();
     // Set loading to false when everything is loaded
-  }, []);
+  // }, []);
 
   // const fetchInitiatives = async () => {
   //   try {

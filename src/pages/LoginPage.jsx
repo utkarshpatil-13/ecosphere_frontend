@@ -42,13 +42,13 @@ const LoginPage = () => {
             }
             else {
                 setSubmitting(false);
-                alert('Login Failed!');
-                console.log('Login Failed!', error);
+                alert(`Login Failed! ${res_data.message}`);
+                console.log(`Login Failed! ${res_data.message}`);
             }
         } catch (error) {
             setSubmitting(false);
-            alert('Login Failed!');
-            console.log("Error occured while logging to the data", error);
+            alert(`Login Failed! ${error.message}`);
+            console.log(`Error occured while logging to the data! ${error.message}`);
         }
     }
 

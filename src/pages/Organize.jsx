@@ -128,13 +128,13 @@ const Organize = () => {
                 setInitiativeSubmitting(false);
             }
             else{
-                console.error("Initiative not created!", response.status);
+                console.error(`Initiative not created! ${res_data.message}`);
                 setInitiativeSubmitting(false);
             }
 
 
         } catch (error) {
-            console.log("Error while submitting the initiative data", error);
+            console.log(`Error while submitting the initiative data! ${error.message}`);
             setInitiativeSubmitting(false);
         }
     }
@@ -186,7 +186,7 @@ const Organize = () => {
                 setChallengeSubmitting(false);
             }
             else{
-                console.error("Challenge not created!", response.status);
+                console.error(`Challenge not created! ${res_data.message}`);
                 setChallengeSubmitting(false);
             }
 
@@ -194,7 +194,7 @@ const Organize = () => {
             console.log(challengeEndDate);
 
         } catch (error) {
-            console.log("Error while creating the challenge", error);
+            console.log(`Error while creating the challenge ${error.message}`);
             setChallengeSubmitting(false);
         }
     }

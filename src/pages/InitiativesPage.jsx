@@ -58,8 +58,13 @@ const InitiativesPage = ({count}) => {
             console.log("Initiatives Added Successfully");
             setInitiatives(res_data.data);
           }
+          else{
+            alert(`Fetching of initiatives failed! ${res_data.message}`);
+            console.error(`Fetching of initiatives failed! ${res_data.message}`);
+          }
         } catch (error) {
-          console.log("Error while fetching the initiatives", error);
+            alert(`Error while fetching the initiatives ${res_data.message}`);
+            console.log(`Error while fetching the initiatives ${error.message}`);
         }
       }
 
@@ -105,11 +110,12 @@ const InitiativesPage = ({count}) => {
                     }));
                 }
                 else{
-                    console.error("Couldn't join the challenge", response.status);
+                    alert(`Couldn't join the challenge! ${res_data.message}`);
+                    console.error(`Couldn't join the challenge! ${res_data.message}`);
                 }
             } catch (error) {
-                alert("Challenge alredy joined!");
-                console.log("Error in joining the challenge", error);
+                alert(`Error in joining the challenge ${error.message}`);
+                console.log(`Error in joining the challenge ${error.message}`);
             }
         }
         else{
@@ -135,11 +141,12 @@ const InitiativesPage = ({count}) => {
                 handleClose();
             }
             else{
-                console.error("Couldn't update the user", response.status);
+                alert(`Couldn't update the user! ${res_data.message}`)
+                console.log(`Couldn't update the user! ${res_data.message}`)
             }
         }   
         catch(error){
-            console.log("Error while updating the user after joining the initiative");
+            console.log(`Error while updating the user after joining the initiative ${error.message}`);
         }
     }
 

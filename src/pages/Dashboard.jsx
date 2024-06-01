@@ -37,10 +37,12 @@ const Dashboard = () => {
         setRedirect(true);
       }
       else{
-        console.error('Error while logging out');
+        alert(`Error while logging out! ${res_data.message}`);
+        console.error(`Error while logging out! ${res_data.message}`);
       }
     } catch (error) {
-      console.log("Some error occurred while logging out", error);
+      alert(`Some error occurred while logging out! ${error.message}`);
+      console.log(`Some error occurred while logging out! ${error.message}`);
     }
   }
 
@@ -70,7 +72,7 @@ const Dashboard = () => {
           console.log("Challenges Added Successfully");
         }
     } catch (error) {
-        console.log("Error while fetching the challenges", error);
+        console.log(`Error while fetching the challenges ${error.message}`);
     }
 };
 
@@ -95,7 +97,7 @@ const Dashboard = () => {
           console.log("Initiatives Added Successfully");
         }
     } catch (error) {
-        console.log("Error while fetching the initiatives", error);
+        console.log(`Error while fetching the initiatives ${error.message}`);
     }
 };
 

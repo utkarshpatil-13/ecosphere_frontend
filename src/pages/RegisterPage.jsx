@@ -21,6 +21,8 @@ const RegisterPage = () => {
                 body: JSON.stringify(data)
             });
 
+            const res_data = await response.json();
+
             if (response.ok) {
                 setSubmitting(false);
                 alert('Registration Successful!');
@@ -28,12 +30,12 @@ const RegisterPage = () => {
             }
             else {
                 setSubmitting(false);
-                alert('Registration Failed!', response.status);
+                alert(`Registration Failed! ${res_data.message}`);
             }
         }
         catch (error) {
             setSubmitting(false);
-            alert('Registration Failed!', error);
+            alert(`Registration Failed!! ${error.message}`);
             console.log('Registration Failed', error);
         }
     }

@@ -31,9 +31,14 @@ const Interests = () => {
             if(response.ok){
                 setData(res_data.data);
             }
+            else{
+                alert(`Interests are unable to fetch! ${res_data.message}`);
+                console.log(`Interests are unable to fetch! ${res_data.message}`);
+            }
         }
         catch(error){
-            console.log("Error while fetching the interests", error);
+            alert(`Error while fetching the interests ${error.message}`);
+            console.log(`Error while fetching the interests ${error.message}`);
         }
     }
 
@@ -63,6 +68,7 @@ const Interests = () => {
                 })
             });
     
+            const res_data = await response.json();
             console.log(response);
 
             if (response.ok) {
@@ -79,12 +85,13 @@ const Interests = () => {
                 
             } else {
                 console.error("Failed to add interests" || response.statusText);
-                alert("Interests not added");
+                alert(`Interests not added! ${res_data.message}`);
                 console.log(response.status);
                 setSubmitting(false);
             }
         } catch (error) {
-            console.log("Error while updating interests of the user", error);
+            alert(`${error.message}` || "Error while updating interests of the user");
+            console.log(`Error while updating interests of the user ${error.message}`);
             setSubmitting(false);
         }
     };
