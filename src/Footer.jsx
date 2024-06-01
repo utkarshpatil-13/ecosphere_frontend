@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer class="p-4 bg-white sm:p-6 dark:bg-gray-800 mt-5">
+    <footer class="p-4 bg-white sm:p-6 dark:bg-gray-800 mt-5 max-md:mx-auto max-md:text-center">
     <div class="mx-auto">
-        <div class="md:flex md:justify-between">
+        <div class="flex justify-between max-md:flex-col max-md:justify-around">
             <Link class="mb-6 md:mb-0"  to={'/'}>
-                <a class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+                <a class="flex items-center max-md:justify-center max-md:gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
             <path d="M15.75 8.25a.75.75 0 0 1 .75.75c0 1.12-.492 2.126-1.27 2.812a.75.75 0 1 1-.992-1.124A2.243 2.243 0 0 0 15 9a.75.75 0 0 1 .75-.75Z" />
             <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM4.575 15.6a8.25 8.25 0 0 0 9.348 4.425 1.966 1.966 0 0 0-1.84-1.275.983.983 0 0 1-.97-.822l-.073-.437c-.094-.565.25-1.11.8-1.267l.99-.282c.427-.123.783-.418.982-.816l.036-.073a1.453 1.453 0 0 1 2.328-.377L16.5 15h.628a2.25 2.25 0 0 1 1.983 1.186 8.25 8.25 0 0 0-6.345-12.4c.044.262.18.503.389.676l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.575 15.6Z" clip-rule="evenodd" />
           </svg>
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">EcoSphere</span>
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white max-md:text-3xl">EcoSphere</span>
                 </a>
             </Link>
-            <div class="grid grid-cols-2 gap-5 sm:gap-6 sm:grid-cols-3">
+            <div class="grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-3">
                 {/* <div>
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
@@ -66,7 +66,7 @@ const Footer = () => {
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <Link to={'/'} class="hover:underline">EcoSphere</Link>. All Rights Reserved.
             </span>
-            <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+            <div class="flex mt-4 max-md:justify-center space-x-6">
                 <a href="https://facebook.com" target='_blank' class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
                 </a>

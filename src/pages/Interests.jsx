@@ -105,7 +105,7 @@ const Interests = () => {
     <div>
 
         <h2 className='text-6xl font-semibold text-center my-10'>Select your different interests for environmental well-being?</h2>
-        <div className='mt-8 grid gap-6 gap-y-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>            
+        <div className='mt-8 grid gap-6 gap-y-8 grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>            
             {
                 data.map((field) => (
                     <div class="max-w-sm bg-white border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700 text-center">

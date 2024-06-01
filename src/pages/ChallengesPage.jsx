@@ -146,15 +146,15 @@ const ChallengesPage = ({count}) => {
     }
 
     return (
-        <div className="mt-8 grid gap-6 gap-y-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="mt-8 grid gap-6 gap-y-8 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 max-md:w-full max-md:text-center max-md:p-2 max-md:text-lg">
             {filteredChallenges.map((challenge, index) => (
-                <div key={index} className='cursor-pointer' onClick={() => handleOpen(challenge)}>
+                <div key={index} className='cursor-pointer max-md:text-lg' onClick={() => handleOpen(challenge)}>
                     <div className="bg-gray-500 mb-2 rounded-2xl flex">
                         <img className="rounded-2xl object-cover aspect-square" src={challenge.images[0]} alt={`Photo ${index}`} />
                     </div>
-                    <h2 className="text-lg font-bold">{challenge.title}</h2>
+                    <h2 className="text-lg font-bold max-md:text-2xl">{challenge.title}</h2>
                     <p className="mt-2 text-gray-600">{challenge.description}</p>
-                    <h3 className="text-md mt-2">{formatDate(challenge.startDate)}</h3>
+                    <h3 className="text-md mt-2 max-md:font-semibold">{formatDate(challenge.startDate)}</h3>
                 </div>
             ))}
             <Modal
