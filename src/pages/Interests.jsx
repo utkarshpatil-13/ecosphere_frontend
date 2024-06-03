@@ -72,8 +72,6 @@ const Interests = () => {
             console.log(response);
 
             if (response.ok) {
-                const res_data = await response.json();
-                console.log(res_data);
                 alert("Interests added successfully");
                 console.log("Interests added successfully");
                 setSubmitting(false);
@@ -120,7 +118,6 @@ const Interests = () => {
                     </div>
                 </div>
                 ))
-            
             }
         </div>
         
