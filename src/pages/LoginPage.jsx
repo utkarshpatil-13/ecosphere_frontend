@@ -63,7 +63,7 @@ const LoginPage = () => {
         <div className="min-h-screen grow flex items-center justify-center">
             {
                 !user && (
-                    <div className="mb-64">
+                    <div className="mb-64 w-full">
                         <h1 className="text-4xl text-center mb-4">Login</h1>
                         <form action="" className="max-w-md mx-auto" onSubmit={handleSubmit(onSubmit)}>
                             <input
@@ -78,7 +78,7 @@ const LoginPage = () => {
                                         message: "Enter a valid email address"
                                     }
                                 })} />
-                            {errors.email && <p className='text-red-500 w-full mt-1 ml-2'>{errors.email.message}</p>}
+                            {errors.email && <p className='text-red-500 w-full mb-1 ml-2'>{errors.email.message}</p>}
 
                             <input
                                 type="password"
@@ -93,7 +93,7 @@ const LoginPage = () => {
                                         message: "Password must be 8 characters long"
                                     }
                                 })} />
-                            {errors.password && <p className='text-red-500 w-full mt-1 ml-2'>{errors.password.message}</p>}
+                            {errors.password && <p className='text-red-500 w-full mb-1 ml-2'>{errors.password.message}</p>}
                             <button className="primary" type="submit">{submitting ? "Logging In..." : "Login"}</button>
                             <div className="text-center py-2 text-gray-500">Don't have an account yet? <Link className="underline text-black" to='/register'>Register now</Link></div>
                         </form>

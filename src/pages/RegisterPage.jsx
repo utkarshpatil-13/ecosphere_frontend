@@ -45,8 +45,8 @@ const RegisterPage = () => {
     }
 
     return (
-        <div className="min-h-screen mt-4 grow flex items-center justify-around mb-4">
-            <div className="mb-64">
+        <div className="min-h-screen mt-4 flex items-center justify-around mb-4">
+            <div className="mb-64 w-full">
                 <h1 className="text-4xl text-center mb-4">Register</h1>
                 <form className="max-w-md mx-auto" onSubmit={handleSubmit(onSubmit)}>
                     <input
